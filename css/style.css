@@ -1,10 +1,26 @@
+.calculatorContainer{
+    display: flex;
+}
 .buttonRow{
     display:flex;
 }
-.numberButton {
+
+.numberButton, .operatorButton {
     display: flex;
     height: 100px;
     width: 100px;
     color: white;
     background-color: black;
+}
+.inputField{
+    display: flex;
+    height: 100px;
+}
+#zero {
+    width:100%;
+}
+
+.operatorButtons {
+    display:flex;
+    flex-direction: column;
 }
