@@ -1,0 +1,10 @@
+.buttonRow{
+    display:flex;
+}
+.numberButton {
+    display: flex;
+    height: 100px;
+    width: 100px;
+    color: white;
+    background-color: black;
+}
