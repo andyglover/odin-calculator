@@ -1,11 +1,20 @@
 .calculatorContainer{
     display: flex;
+    flex-direction: column;
+    width:fit-content
+}
+.calculatorButtons{
+    display:flex;
+}
+.leftButtons,.rightButtons{
+    display:flex;
+    flex-direction: column;
 }
 .buttonRow{
     display:flex;
 }
 
-.numberButton, .operatorButton {
+.numberButton, .operatorButton, .otherButton {
     display: flex;
     height: 100px;
     width: 100px;
@@ -13,12 +22,21 @@
     background-color: black;
 }
 
-.inputField{
-    background-color: green;
+.inputField, .myConsole{
+    
     display: flex;
-    height: 100px;
+    
+    width: 100%;
 }
-#zero {
+.inputField{
+    height: 100px;
+    background-color: green;
+}
+.myConsole{
+    height: 20px;
+    background-color: grey;
+}
+#zero, #clr {
     width:100%;
 }
 
