@@ -1,5 +1,6 @@
 const numberButtons = document.querySelectorAll('.numberButton');
 const operatorButtons = document.querySelectorAll('.operatorButton');
+const clearButton = document.querySelector('#clear');
 const inputField = document.querySelector('.inputField');
 const myConsole = document.querySelector('.myConsole');
 const buttonColor = "black";
@@ -12,9 +13,10 @@ numberButtons.forEach((numberButton) => {
         'click', () => {
             if (buttonHighlighted){
                 storeActiveOperator(highlightedButton)
+                storeActiveNumber(inputField.textContent)
                 clearInputField();
             }
-            inputField.textContent += numberButton.id;
+            addToInputField(numberButton.id);
             }
     )
     numberButton.addEventListener(
@@ -39,6 +41,16 @@ operatorButtons.forEach((operatorButton) => {
         }
     )
 })
+
+clearButton.addEventListener(
+    'click', () => {
+        if (buttonHighlighted){
+        unhighlightButton(highlightedButton);
+        }
+        clearInputField();
+        clearMyConsole();
+    }
+)
 
 function colorButton (button,color) {
     button.style.backgroundColor = color;
@@ -65,9 +77,19 @@ function storeActiveOperator(button){
     addToMyConsole(`Stored active operator: ${button.id}`)
     unhighlightButton(button);
 }
+
+function storeActiveNumber(input){
+    addToMyConsole(`Stored active number: ${input}`)
+}
 function clearInputField(){
     inputField.textContent = "";
 }
+function clearMyConsole(){
+    myConsole.textContent = "";
+}
 function addToMyConsole(text){
     myConsole.textContent+=text;
+}
+function addToInputField(input){
+    inputField.textContent+=input;
 }
