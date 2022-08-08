@@ -14,7 +14,6 @@ numberButtons.forEach((numberButton) => {
                 storeActiveOperator(highlightedButton)
                 clearInputField();
             }
-            myConsole.textContent+=numberButton.id;
             inputField.textContent += numberButton.id;
             }
     )
@@ -63,10 +62,12 @@ function unblinkButton(button){
     colorButton(button,buttonColor);
 }
 function storeActiveOperator(button){
-    myConsole.textContent+=`Stored active operator: ${button.id}`;
+    addToMyConsole(`Stored active operator: ${button.id}`)
     unhighlightButton(button);
 }
-
 function clearInputField(){
     inputField.textContent = "";
+}
+function addToMyConsole(text){
+    myConsole.textContent+=text;
 }
