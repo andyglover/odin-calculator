@@ -16,12 +16,12 @@ numberButtons.forEach((numberButton) => {
     )
     numberButton.addEventListener(
         'mousedown', () => {
-            highlightButton(numberButton);
+            blinkButton(numberButton);
         }
     )
     numberButton.addEventListener(
         'mouseup', () => {
-            unhighlightButton(numberButton);
+            unblinkButton(numberButton);
         }
     )
 })
@@ -48,5 +48,13 @@ function highlightButton (button) {
 }
 function unhighlightButton (button) {
     colorButton(button,buttonColor);
+    highlightedButton = undefined;
     buttonHighlighted = false;
+}
+
+function blinkButton(button){
+    colorButton(button,highlightColor);
+}
+function unblinkButton(button){
+    colorButton(button,buttonColor);
 }
