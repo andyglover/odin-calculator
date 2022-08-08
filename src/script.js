@@ -1,16 +1,16 @@
 const numberButtons = document.querySelectorAll('.numberButton');
 const operatorButtons = document.querySelectorAll('.operatorButton');
 const inputField = document.querySelector('.inputField');
+const myConsole = document.querySelector('.myConsole');
 const buttonColor = "black";
 const highlightColor = "grey";
 let buttonHighlighted = false;
 let highlightedButton;
 
-
 numberButtons.forEach((numberButton) => {
     numberButton.addEventListener(
         'click', () => {
-            console.log(numberButton.id);
+            myConsole.textContent+=numberButton.id;
             inputField.textContent += numberButton.id;
             }
     )
