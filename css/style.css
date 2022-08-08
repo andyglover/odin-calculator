@@ -12,7 +12,9 @@
     color: white;
     background-color: black;
 }
+
 .inputField{
+    background-color: green;
     display: flex;
     height: 100px;
 }
