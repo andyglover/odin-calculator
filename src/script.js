@@ -1,6 +1,11 @@
 const numberButtons = document.querySelectorAll('.numberButton');
 const operatorButtons = document.querySelectorAll('.operatorButton');
 const inputField = document.querySelector('.inputField');
+const buttonColor = "black";
+const highlightColor = "grey";
+let buttonHighlighted = false;
+let highlightedButton;
+
 
 numberButtons.forEach((numberButton) => {
     numberButton.addEventListener(
@@ -14,13 +19,23 @@ numberButtons.forEach((numberButton) => {
 operatorButtons.forEach((operatorButton) => {
     operatorButton.addEventListener(
         'click', () => {
-            console.log(operatorButton.id);
-            colorButton(operatorButton,"grey");
+            if (buttonHighlighted){
+                unhighlightButton(highlightedButton);
+            }
+            highlightButton(operatorButton);
         }
     )
 })
 
-function colorButton (button,color){
+function colorButton (button,color) {
     button.style.backgroundColor = color;
 }
-//make button number appear in text field
+
+function highlightButton (button) {
+    colorButton(button,highlightColor);
+    highlightedButton = button;
+    buttonHighlighted = true;
+}
+function unhighlightButton (button) {
+    colorButton(button,buttonColor);
+}
