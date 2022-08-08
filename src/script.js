@@ -14,6 +14,16 @@ numberButtons.forEach((numberButton) => {
             inputField.textContent += numberButton.id;
             }
     )
+    numberButton.addEventListener(
+        'mousedown', () => {
+            highlightButton(numberButton);
+        }
+    )
+    numberButton.addEventListener(
+        'mouseup', () => {
+            unhighlightButton(numberButton);
+        }
+    )
 })
 
 operatorButtons.forEach((operatorButton) => {
@@ -38,4 +48,5 @@ function highlightButton (button) {
 }
 function unhighlightButton (button) {
     colorButton(button,buttonColor);
+    buttonHighlighted = false;
 }
