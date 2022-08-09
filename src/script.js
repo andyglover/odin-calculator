@@ -45,16 +45,6 @@ numberButtons.forEach((numberButton) => {
             addToInputField(numberButton.id);
             }
     )
-    numberButton.addEventListener(
-        'mousedown', () => {
-            blinkButton(numberButton);
-        }
-    )
-    numberButton.addEventListener(
-        'mouseup', () => {
-            unblinkButton(numberButton);
-        }
-    )
 })
 
 operatorButtons.forEach((operatorButton) => {
