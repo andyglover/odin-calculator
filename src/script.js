@@ -11,7 +11,8 @@ const highlightColor = "grey";
 
 let buttonHighlighted = false;
 let operatorStored = false;
-let numberStored = false;
+let firstNumberStored = false;
+let secondNumberStored = false;
 
 let highlightedButton;
 let operator;
@@ -65,13 +66,19 @@ clearButton.addEventListener(
 
 equalsButton.addEventListener(
  'click',() => {
+    if(firstNumberStored){
     num2 = Number(inputField.textContent);
+    }
+    else if(secondNumberStored){
+    num1 = Number(inputField.textContent);
+    }
     answer = operate(operator,num1,num2);
     console.log(`${num1}${operator}${num2}=${answer}`)
     clearInputField();
     addToInputField(answer);
-    let operatorStored = false;
-    let numberStored = false;
+    operatorStored = false;
+    firstNumberStored = false;
+    secondNumberStored = true;
  }
 )
 
@@ -106,8 +113,8 @@ function storeOperator(button){
 
 function storeFirstNumber(input){
     num1 = Number(input);
-    numberStored=true;
-    addToMyConsole(`Stored active number: ${input}`)
+    firstNumberStored=true;
+    addToMyConsole(`Stored first number: ${input}`)
 }
 
 
