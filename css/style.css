@@ -13,7 +13,6 @@
 .buttonRow{
     display:flex;
 }
-
 .numberButton, .operatorButton, .otherButton {
     display: flex;
     height: 100px;
@@ -21,11 +20,11 @@
     color: white;
     background-color: black;
 }
-
+button{
+    font-size:75px;
+}
 .inputField, .myConsole{
-    
     display: flex;
-    
     width: 100%;
 }
 .inputField{
