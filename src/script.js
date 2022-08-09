@@ -1,5 +1,6 @@
 const numberButtons = document.querySelectorAll('.numberButton');
 const operatorButtons = document.querySelectorAll('.operatorButton');
+const blinkingButtons = document.querySelectorAll('.blinkingButton');
 const clearButton = document.querySelector('#clear');
 const equalsButton = document.querySelector('#equals')
 
@@ -19,6 +20,19 @@ let operator;
 let num1;
 let num2;
 let answer;
+
+blinkingButtons.forEach((blinkingButton) => {
+    blinkingButton.addEventListener(
+        'mousedown', () => {
+            blinkButton(blinkingButton);
+        }
+    )
+    blinkingButton.addEventListener(
+        'mouseup', () => {
+            unblinkButton(blinkingButton);
+        }
+    )
+})
 
 numberButtons.forEach((numberButton) => {
     numberButton.addEventListener(
@@ -72,11 +86,13 @@ equalsButton.addEventListener(
     else if(secondNumberStored){
     num1 = Number(inputField.textContent);
     }
+    else {
+        console.log("no number to operate on");
+    }
     answer = operate(operator,num1,num2);
-    console.log(`${num1}${operator}${num2}=${answer}`)
+    console.log(`${num1} ${operator} ${num2} = ${answer}`)
     clearInputField();
     addToInputField(answer);
-    operatorStored = false;
     firstNumberStored = false;
     secondNumberStored = true;
  }
@@ -125,6 +141,7 @@ function clearMyConsole(){
     myConsole.textContent = "";
 }
 function addToMyConsole(text){
+    clearMyConsole()
     myConsole.textContent+=text;
 }
 function addToInputField(input){
