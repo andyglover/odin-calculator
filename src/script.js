@@ -1,19 +1,30 @@
 const numberButtons = document.querySelectorAll('.numberButton');
 const operatorButtons = document.querySelectorAll('.operatorButton');
 const clearButton = document.querySelector('#clear');
+const equalsButton = document.querySelector('#equals')
+
 const inputField = document.querySelector('.inputField');
 const myConsole = document.querySelector('.myConsole');
+
 const buttonColor = "black";
 const highlightColor = "grey";
+
 let buttonHighlighted = false;
+let operatorStored = false;
+let numberStored = false;
+
 let highlightedButton;
+let operator;
+let num1;
+let num2;
+let answer;
 
 numberButtons.forEach((numberButton) => {
     numberButton.addEventListener(
         'click', () => {
             if (buttonHighlighted){
-                storeActiveOperator(highlightedButton)
-                storeActiveNumber(inputField.textContent)
+                storeOperator(highlightedButton)
+                storeFirstNumber(inputField.textContent)
                 clearInputField();
             }
             addToInputField(numberButton.id);
@@ -52,10 +63,21 @@ clearButton.addEventListener(
     }
 )
 
+equalsButton.addEventListener(
+ 'click',() => {
+    num2 = Number(inputField.textContent);
+    answer = operate(operator,num1,num2);
+    console.log(`${num1}${operator}${num2}=${answer}`)
+    clearInputField();
+    addToInputField(answer);
+    let operatorStored = false;
+    let numberStored = false;
+ }
+)
+
 function colorButton (button,color) {
     button.style.backgroundColor = color;
 }
-
 function highlightButton (button) {
     colorButton(button,highlightColor);
     highlightedButton = button;
@@ -66,21 +88,29 @@ function unhighlightButton (button) {
     highlightedButton = undefined;
     buttonHighlighted = false;
 }
-
 function blinkButton(button){
     colorButton(button,highlightColor);
 }
 function unblinkButton(button){
     colorButton(button,buttonColor);
 }
-function storeActiveOperator(button){
+
+
+function storeOperator(button){
+    operator=button.id;
+    operatorStored=true;
     addToMyConsole(`Stored active operator: ${button.id}`)
     unhighlightButton(button);
+    
 }
 
-function storeActiveNumber(input){
+function storeFirstNumber(input){
+    num1 = Number(input);
+    numberStored=true;
     addToMyConsole(`Stored active number: ${input}`)
 }
+
+
 function clearInputField(){
     inputField.textContent = "";
 }
@@ -92,4 +122,12 @@ function addToMyConsole(text){
 }
 function addToInputField(input){
     inputField.textContent+=input;
+}
+
+function operate(operator,num1,num2){
+    if(operator=="divide"){return (num1 / num2);}
+    else if(operator=="multiply"){return (num1 * num2);}
+    else if(operator=="subtract"){return (num1 - num2);}
+    else if(operator=="add"){return (num1 + num2);}
+    else {console.log("no operator");}
 }
