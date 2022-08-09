@@ -42,8 +42,14 @@ numberButtons.forEach((numberButton) => {
                 storeFirstNumber(inputField.textContent)
                 clearInputField();
             }
-            addToInputField(numberButton.id);
+            if(numberButton.id=="zero")
+            {
+                addToInputField("0");
             }
+            else {
+                addToInputField(numberButton.id);
+            }
+        }
     )
 })
 
