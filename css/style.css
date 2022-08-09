@@ -20,7 +20,7 @@
     color: white;
     background-color: black;
 }
-button{
+button, .inputField{
     font-size:75px;
 }
 .inputField, .myConsole{
