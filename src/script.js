@@ -92,7 +92,13 @@ plusMinusButton.addEventListener(
 
 equalsButton.addEventListener(
  'click',() => {
-    if(num1Stored){
+    if (buttonHighlighted){
+        storeOperator(highlightedButton);
+        storeFirstNumber(inputField.textContent);
+        storeSecondNumber(inputField.textContent);
+        doOperation();
+    }
+    else if(num1Stored){
         num2 = Number(inputField.textContent);
         doOperation();
     }
@@ -107,7 +113,6 @@ equalsButton.addEventListener(
     else {
         console.log("no number to operate on");
     }
-    
  }
 )
 
@@ -155,6 +160,12 @@ function storeFirstNumber(input){
     num1 = Number(input);
     num1Stored=true;
     addToMyConsole(`Stored first number: ${input}`)
+}
+
+function storeSecondNumber(input){
+    num2 = Number(input);
+    num2Stored=true;
+    addToMyConsole(`Stored second number: ${input}`)
 }
 
 
