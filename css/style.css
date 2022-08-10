@@ -24,6 +24,7 @@ button, .inputField{
     font-size:75px;
 }
 .inputField, .myConsole{
+    font-family: 'Courier New', monospace;
     display: flex;
     width: 100%;
 }
