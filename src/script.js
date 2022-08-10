@@ -67,6 +67,7 @@ operatorButtons.forEach((operatorButton) => {
                 unhighlightButton(highlightedButton);
             }
             highlightButton(operatorButton);
+            //if num1 is stored??
         }
     )
 })
@@ -78,6 +79,7 @@ clearButton.addEventListener(
         }
         clearFirstNumber();
         clearSecondNumber();
+        clearOperator();
         clearInputField();
         clearMyConsole();
     }
@@ -169,7 +171,6 @@ function unblinkButton(button){
     colorButton(button,buttonColor);
 }
 
-
 function storeOperator(button){
     operator=button.id;
     operatorStored=true;
@@ -197,6 +198,10 @@ function clearFirstNumber(){
 function clearSecondNumber(){
     num2 = undefined;
     num2Stored = false;
+}
+function clearOperator(){
+    operator=undefined;
+    operatorStored=false;
 }
 
 
