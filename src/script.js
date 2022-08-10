@@ -45,16 +45,18 @@ numberButtons.forEach((numberButton) => {
                 storeFirstNumber(inputField.textContent)
                 clearInputField();
             }
-            if(numberButton.id=="zero")
-            {
-                addToInputField("0");
-            }
-            else if(numberButton.id=="decimal")
-            {
-                addToInputField(".");
-            }
-            else {
-                addToInputField(numberButton.id);
+            if(inputField.textContent.length<9){
+                if(numberButton.id=="zero")
+                {
+                    addToInputField("0");
+                }
+                else if(numberButton.id=="decimal")
+                {
+                    addToInputField(".");
+                }
+                else {
+                    addToInputField(numberButton.id);
+                }
             }
         }
     )
