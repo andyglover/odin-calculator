@@ -117,6 +117,25 @@ equalsButton.addEventListener(
  }
 )
 
+percentButton.addEventListener(
+    'click',() => {
+        if (buttonHighlighted){
+            storeOperator(highlightedButton);
+            storeFirstNumber(inputField.textContent);
+            storeSecondNumber(num1 * (inputField.textContent/100));
+            doOperation();}
+        else if(!num1Stored){
+            inputFieldContents = Number(inputField.textContent);
+            clearInputField();
+            addToInputField(inputFieldContents/100);
+        }
+        else if (num1Stored){
+            storeSecondNumber(num1 * (inputField.textContent/100));
+            doOperation();
+        }
+    }
+)
+
 function doOperation(){
     answer = operate(operator,num1,num2);
     console.log(`${num1} ${operator} ${num2} = ${answer}`)
@@ -125,8 +144,6 @@ function doOperation(){
     num1Stored = false;
     num2Stored = true;
 }
-
-
 
 function colorButton (button,color) {
     button.style.backgroundColor = color;
