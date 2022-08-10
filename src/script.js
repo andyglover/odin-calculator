@@ -2,7 +2,8 @@ const numberButtons = document.querySelectorAll('.numberButton');
 const operatorButtons = document.querySelectorAll('.operatorButton');
 const blinkingButtons = document.querySelectorAll('.blinkingButton');
 const clearButton = document.querySelector('#clear');
-const equalsButton = document.querySelector('#equals')
+const equalsButton = document.querySelector('#equals');
+const plusMinusButton = document.querySelector('#plusminus');
 
 const inputField = document.querySelector('.inputField');
 const myConsole = document.querySelector('.myConsole');
@@ -17,6 +18,7 @@ let secondNumberStored = false;
 
 let highlightedButton;
 let operator;
+let inputFieldContents;
 let num1;
 let num2;
 let answer;
@@ -71,6 +73,19 @@ clearButton.addEventListener(
         }
         clearInputField();
         clearMyConsole();
+    }
+)
+
+plusMinusButton.addEventListener(
+    'click', () => {
+        inputFieldContents = Number(inputField.textContent);
+        clearInputField();
+        if(inputFieldContents==0){
+            addToInputField("-")
+        }
+        else{
+        addToInputField(inputFieldContents*-1);
+        }
     }
 )
 
