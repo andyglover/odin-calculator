@@ -101,11 +101,11 @@ equalsButton.addEventListener(
         doOperation();
     }
     else if(num1Stored){
-        num2 = Number(inputField.textContent);
+        storeSecondNumber(inputField.textContent);
         doOperation();
     }
     else if(num2Stored){
-        num1 = Number(inputField.textContent);
+        storeFirstNumber(inputField.textContent);
         doOperation();
     }
     else if(inputField.textContent!=""){
