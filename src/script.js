@@ -23,6 +23,7 @@ let inputFieldContents;
 let num1;
 let num2;
 let answer;
+let rounded;
 
 blinkingButtons.forEach((blinkingButton) => {
     blinkingButton.addEventListener(
@@ -151,7 +152,8 @@ function doOperation(){
     answer = operate(operator,num1,num2);
     console.log(`${num1} ${operator} ${num2} = ${answer}`)
     clearInputField();
-    addToInputField(answer);
+    rounded = Math.round(answer * 100000) / 100000
+    addToInputField(rounded);
     num1Stored = false;
     num2Stored = true;
 }
