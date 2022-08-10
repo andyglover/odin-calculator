@@ -105,8 +105,7 @@ equalsButton.addEventListener(
         doOperation();
     }
     else if(num2Stored){
-        num1 = num2;
-        num2 = Number(inputField.textContent);
+        num1 = Number(inputField.textContent);
         doOperation();
     }
     else if(inputField.textContent!=""){
