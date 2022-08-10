@@ -1,5 +1,5 @@
 # odin-calculator
-calculator project for the odin project fundamentals
+This project is live at: https://www.andyglover.io/odin-calculator/
  
 I've applied what I've learned from the Odin Project Javascript Foundations. This project tested my abilities!
 
