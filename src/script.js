@@ -14,8 +14,8 @@ const highlightColor = "grey";
 
 let buttonHighlighted = false;
 let operatorStored = false;
-let firstNumberStored = false;
-let secondNumberStored = false;
+let num1Stored = false;
+let num2Stored = false;
 
 let highlightedButton;
 let operator;
@@ -92,13 +92,14 @@ plusMinusButton.addEventListener(
 
 equalsButton.addEventListener(
  'click',() => {
-    if(firstNumberStored){
-    num2 = Number(inputField.textContent);
-    doOperation();
+    if(num1Stored){
+        num2 = Number(inputField.textContent);
+        doOperation();
     }
-    else if(secondNumberStored){
-    num1 = Number(inputField.textContent);
-    doOperation();
+    else if(num2Stored){
+        num1 = num2;
+        num2 = Number(inputField.textContent);
+        doOperation();
     }
     else if(inputField.textContent!=""){
         console.log("equals self");
@@ -115,8 +116,8 @@ function doOperation(){
     console.log(`${num1} ${operator} ${num2} = ${answer}`)
     clearInputField();
     addToInputField(answer);
-    firstNumberStored = false;
-    secondNumberStored = true;
+    num1Stored = false;
+    num2Stored = true;
 }
 
 
@@ -152,7 +153,7 @@ function storeOperator(button){
 
 function storeFirstNumber(input){
     num1 = Number(input);
-    firstNumberStored=true;
+    num1Stored=true;
     addToMyConsole(`Stored first number: ${input}`)
 }
 
