@@ -36,7 +36,7 @@ button, .inputField{
     background-color: grey;
 }
 #zero {
-    width:100%;
+    flex-grow:1;
 }
 
 .operatorButtons {

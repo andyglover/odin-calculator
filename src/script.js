@@ -49,6 +49,10 @@ numberButtons.forEach((numberButton) => {
             {
                 addToInputField("0");
             }
+            else if(numberButton.id=="decimal")
+            {
+                addToInputField(".");
+            }
             else {
                 addToInputField(numberButton.id);
             }
