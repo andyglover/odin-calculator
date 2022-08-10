@@ -4,6 +4,7 @@ const blinkingButtons = document.querySelectorAll('.blinkingButton');
 const clearButton = document.querySelector('#clear');
 const equalsButton = document.querySelector('#equals');
 const plusMinusButton = document.querySelector('#plusminus');
+const percentButton = document.querySelector('#percent');
 
 const inputField = document.querySelector('.inputField');
 const myConsole = document.querySelector('.myConsole');
@@ -93,21 +94,32 @@ equalsButton.addEventListener(
  'click',() => {
     if(firstNumberStored){
     num2 = Number(inputField.textContent);
+    doOperation();
     }
     else if(secondNumberStored){
     num1 = Number(inputField.textContent);
+    doOperation();
+    }
+    else if(inputField.textContent!=""){
+        console.log("equals self");
     }
     else {
         console.log("no number to operate on");
     }
+    
+ }
+)
+
+function doOperation(){
     answer = operate(operator,num1,num2);
     console.log(`${num1} ${operator} ${num2} = ${answer}`)
     clearInputField();
     addToInputField(answer);
     firstNumberStored = false;
     secondNumberStored = true;
- }
-)
+}
+
+
 
 function colorButton (button,color) {
     button.style.backgroundColor = color;
