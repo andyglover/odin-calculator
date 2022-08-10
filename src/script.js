@@ -67,7 +67,10 @@ operatorButtons.forEach((operatorButton) => {
                 unhighlightButton(highlightedButton);
             }
             highlightButton(operatorButton);
-            //if num1 is stored??
+            if (num1Stored){
+                storeSecondNumber(inputField.textContent);
+                doOperation();
+            }
         }
     )
 })
