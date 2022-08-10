@@ -72,6 +72,8 @@ clearButton.addEventListener(
         if (buttonHighlighted){
         unhighlightButton(highlightedButton);
         }
+        clearFirstNumber();
+        clearSecondNumber();
         clearInputField();
         clearMyConsole();
     }
@@ -166,6 +168,15 @@ function storeSecondNumber(input){
     num2 = Number(input);
     num2Stored=true;
     addToMyConsole(`Stored second number: ${input}`)
+}
+
+function clearFirstNumber(){
+    num1 = undefined;
+    num1Stored = false;
+}
+function clearSecondNumber(){
+    num2 = undefined;
+    num2Stored = false;
 }
 
 
